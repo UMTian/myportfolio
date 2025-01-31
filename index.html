@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio Website</title>
+    <title>MY Portfolio Website</title>
 </head>
 <body>
     <header>
         <a href="#" class="logo">Muhammad Hanzalah</a>
 
         <nav>
-            <a href="#">Services</a>
+            <a href="#">Home</a>
             <a href="#skills">Skills</a>
-            <a href="#">Education</a>
-            <a href="#">Experience</a>
+            <a href="#projects">Project</a>
+            <a href="#experience">Experience</a>
             <a href="#blogs">Blogs</a>  <!-- Added Blogs button -->
             <a href="#">Contact</a>
         </nav>
@@ -56,6 +56,111 @@
         </ul>
     </section>
 
+    <!-- Project Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <!-- Navigation Buttons -->
+        <button class="prev-btn">❮</button>
+        <button class="next-btn">❯</button>
+
+        <div class="project-slider-container">
+            <div class="project-slider">
+                <div class="project-card">
+                    <img src="project1.png" alt="Project 1">
+                    <div class="project-content">
+                        <h4>Career Recommender</h4>
+                        <p>recommends career based upon interest and skills </p>
+                        <a href="https://my-career.streamlit.app/" class="demo-btn" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="project2.jpeg" alt="Project 2">
+                    <div class="project-content">
+                        <h4>Chat Bot</h4>
+                        <p>Human interacting based chatbot</p>
+                        <a href="https://chad-gpt.streamlit.app/" class="demo-btn" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="project3.jpg" alt="Project 3">
+                    <div class="project-content">
+                        <h4>startup success</h4>
+                        <p>Predict success of Startups based upon Sentiments </p>
+                        <a href="https://startups-prediction.streamlit.app/" class="demo-btn" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="project4.png" alt="Project 4">
+                    <div class="project-content">
+                        <h4>Employ Dashboard</h4>
+                        <p>A Dashbord project to visualize employer routines</p>
+                        <a href="https://employee-analysis.streamlit.app/" class="demo-btn" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="project5.jpg" alt="Project 5">
+                    <div class="project-content">
+                        <h4>Comming Soon</h4>
+                        <p>NAn</p>
+                        <a href="#" class="demo-btn" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript (For Slider Buttons) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slider = document.querySelector(".project-slider-container");
+            const prevButton = document.querySelector(".prev-btn");
+            const nextButton = document.querySelector(".next-btn");
+
+            const scrollAmount = 350;
+
+            prevButton.addEventListener("click", () => {
+                slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+            });
+
+            nextButton.addEventListener("click", () => {
+                slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            });
+        });
+    </script>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h1>Experience</h1>
+        <div class="experience-container">
+            <div class="experience-card">
+                <h3>AI Instructor</h3>
+                <p>Arfa Kareem Technology Incubators (June 2024 - November 2024)</p>
+            </div>
+            <div class="experience-card">
+                <h3>ML Engineer Intern</h3>
+                <p>Digital Direction (August 2024 - October 2024)</p>
+            </div>
+            <div class="experience-card">
+                <h3>EDA Intern</h3>
+                <p>AICP (March 2022 - May 2024)</p>
+            </div>
+            <div class="experience-card">
+                <h3>Peer Tutoring</h3>
+                <p>UMT (February 2022 - Present)</p>
+            </div>
+            <div class="experience-card">
+                <h3>Tutoring</h3>
+                <p>Leading Academy (2021 - 2023)</p>
+            </div>
+            <div class="experience-card">
+                <h3>Teacher</h3>
+                <p>Nouman Bin Sabit School (2017 - 2020)</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Blogs Section -->
     <section id="blogs" class="blogs">
         <h2>My Blogs</h2>
@@ -66,6 +171,71 @@
                 <!-- Updated the 'Read More' link to your blog URL -->
                 <a href="https://hanzalahashraf.blogspot.com/" class="btn" target="_blank">Read More</a>
             </div>
+        </div>
+    </section>
+
+
+
+<!-- Resume Modal -->
+<div id="resumeModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe src="resume.pdf" width="100%" height="500px"></iframe>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("resumeModal");
+        const hireMeButton = document.querySelector(".btn"); // Hire Me button
+        const closeButton = document.querySelector(".close");
+    
+        hireMeButton.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            modal.style.display = "flex"; // Show modal
+        });
+    
+        closeButton.addEventListener("click", function () {
+            modal.style.display = "none"; // Hide modal when close button is clicked
+        });
+    
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none"; // Hide modal when clicking outside
+            }
+        });
+    });
+    </script>
+
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-description">We’d love to hear from you! Whether you have a question or just want to say hello, feel free to reach out.</p>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p>03338010986</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>hanzalah.2k20@gmail.com</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Ghani Muhallah Lahore, Pakistan </p>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
 
